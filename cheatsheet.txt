@@ -1,0 +1,20 @@
+Docker
+
+# Docker build
+ docker build -t <repository>/<namespace>/<name_of_the_application>:<version> .
+
+# Delete all containers
+docker rm -f $(docker ps -a -q)
+
+# Delete all images
+docker rmi -f $(docker images -q)
+
+# Run Docker image
+docker run <image>
+
+# Browse Docker images from private repository
+docker-browse tags <namespace>/<name_of_the_application>:<version> -r <registry>
+
+# Run Docker image using kubectl
+kubectl run --image=<registry>/<namespace>/<name_of_the_application>:<version> <name_of_deployment>
+kubectl expose deployment <name_of_deployment> --port=<port> --name=<name_of_service>
